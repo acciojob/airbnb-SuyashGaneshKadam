@@ -30,8 +30,7 @@ public class HotelManagementController {
         //Incase somebody is trying to add the duplicate hotelName return FAILURE
         //in all other cases return SUCCESS after successfully adding the hotel to the hotelDb.
         if(hotel == null || hotel.getHotelName() == null){ return "FAILURE"; }
-
-        return null;
+        return serviceObject.addHotel(hotel);
     }
 
     @PostMapping("/add-user")
@@ -39,8 +38,8 @@ public class HotelManagementController {
 
         //You need to add a User Object to the database
         //Assume that user will always be a valid user and return the aadharCardNo of the user
-
-       return null;
+        serviceObject.addUser(user);
+        return user.getaadharCardNo();
     }
 
     @GetMapping("/get-hotel-with-most-facilities")
@@ -49,8 +48,7 @@ public class HotelManagementController {
         //Out of all the hotels we have added so far, we need to find the hotelName with most no of facilities
         //Incase there is a tie return the lexicographically smaller hotelName
         //Incase there is not even a single hotel with atleast 1 facility return "" (empty string)
-
-        return null;
+        return serviceObject.getHotelWithMostFacilities();
     }
 
     @PostMapping("/book-a-room")
